@@ -14,21 +14,22 @@ const int WMAX = 10005;// 稍微大一点
 int n, W;// 物品数量 背包容量
 int w[NMAX], v[NMAX];// 物品重量 物品价值
 
-int dp[NMAX][WMAX];// 对重量为 j 时对第 i 个物品选或者不选 价值和
+int dp[2][WMAX];// t喵的谁想的状态转移！？
 
+// 优化：
+/*
+  dp[i] 计算时只需要 dp[i + 1]，可以通过位运算 & 优化内存
+*/
 void solve(){
-  // 为什么 i 从 n 开始？
-  // 因为第 n 个物品的价值和为 0（不存在第 n 个物品），符合 dp 数组的初始状态
-  Per(0, i, n - 1) {
+  rep(0, i, n) {
     Rep(0, j, W) {
-      if(j < w[i]) {
-        dp[i][j] = dp[i + 1][j];
-      } else {
-        dp[i][j] = max(dp[i + 1][j], dp[i + 1][j - w[i]] + v[i]);
+      dp[(i + 1) & 1][j] = max(dp[(i + 1) & 1][j], dp[i & 1][j]);
+      if( j + w[i] <= W) {
+        dp[(i + 1) & 1][j + w[i]] = max(dp[(i + 1) & 1][j + w[i]], dp[i & 1][j] + v[i]);
       }
     }
   }
-  cout << dp[0][W] << endl;
+  cout << dp[n & 1][W] << endl;
 }
 
 int main(){
