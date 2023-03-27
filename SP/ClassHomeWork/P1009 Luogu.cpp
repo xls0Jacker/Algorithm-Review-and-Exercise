@@ -22,17 +22,12 @@ int dp[MMAX + NMAX][NMAX][NMAX];// 两张纸条当前走的步数
 void solve(){
   // 初始状态
   dp[1][1][1] = f[1][1];// 默认第一步在初始位置
-  for (int k = 2; k < m + n; k++) {
+  for (int k = 1; k < m + n; k++) {
     for (int i = 1; i <= m and i <= k; i++) {
       for (int j = 1; j <= m and j <= k; j++) {
-        // 状态转移方程
-        /*
-          dp[k - 1][i - 1][j] 一号纸条往右传 二号纸条往下传
-          dp[k - 1][i][j - 1] 一号纸条往下传 二号纸条往右传
-          dp[k - 1][i - 1][j - 1] 两张纸条均往右传
-          dp[k - 1][i][j] 两张纸条均往下传
-        */
-        dp[k][i][j] = max({dp[k - 1][i - 1][j], dp[k - 1][i][j - 1], dp[k - 1][i - 1][j - 1], dp[k - 1][i][j]});
+        dp[k][i][j] = max({dp[k - 1][i - 1][j], 
+          dp[k - 1][i][j - 1], dp[k - 1][i - 1][j - 1],
+            dp[k - 1][i][j]});
         if(i == j) {
           dp[k][i][j] += f[i][k - i + 1];// 路径重复时只加一次
         } else {
