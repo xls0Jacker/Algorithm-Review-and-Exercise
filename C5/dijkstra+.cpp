@@ -25,6 +25,8 @@ vector<edge> G[EMAX];// 所有顶点边的集合
 
 typedef pair<int, int> P;// 到当前顶点的距离 当前顶点编号
 
+int _prev[VMAX];// 最短路径上的前驱节点（顺序输出是 终点 -> 起点）
+
 void dijkstra(int s) {
   priority_queue<P, vector<P>, greater<P>> que;// 默认按照 first 进行排序
   // 初始化
@@ -41,15 +43,27 @@ void dijkstra(int s) {
       edge e = G[v][i];
       if(d[e.to] > d[v] + e.cost) {
         d[e.to] = d[v] + e.cost;
+        _prev[e.to] = v;
         que.push(P(d[e.to], e.to));
       }
     }
   }
 } 
 
+// 返回路径
+vector<int> Get_path(int t) {// 终点 t
+  vector<int> path;
+  for (; t != -1; t = _prev[t]) {
+    path.push_back(t);
+  }
+  reverse(path.begin(), path.end());
+  return path;
+}
+
 void solve(){
   // 初始化
   fill(d, d + V, INF);
+  fill(_prev, _prev + V, -1);
   int s = 0;// 假设初始点为 0
   int f;// 终点
   dijkstra(s);
