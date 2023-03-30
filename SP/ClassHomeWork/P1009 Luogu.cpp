@@ -20,8 +20,6 @@ int dp[MMAX + NMAX][NMAX][NMAX];// 两张纸条当前走的步数
 // 特别的 当坐标值为 -1 时，代表其未访问过
 
 void solve(){
-  // 初始状态
-  dp[1][1][1] = f[1][1];// 默认第一步在初始位置
   for (int k = 1; k < m + n; k++) {
     for (int i = 1; i <= m and i <= k; i++) {
       for (int j = 1; j <= m and j <= k; j++) {
