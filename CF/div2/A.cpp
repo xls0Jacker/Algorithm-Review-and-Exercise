@@ -9,18 +9,35 @@ using namespace std;
 #define sys system("pause")
 typedef long long ll;
 
-double f1 = -0.14145;
-float f2 = -1.51514;
+int t;
+string s;
 
 void solve(){
-  cout << fabs(f1) << endl;
-  cout << fabs(f2) << endl;
+  int cun = 1;
+  if(s[0] == '0') {
+    cout << 0 << endl;
+  } else if(s.find('?') != string::npos) {
+    if(s[0] == '?') {
+      cun *= 9;
+    }
+    Rep(1, i, s.size()) {
+      if(s[i] == '?') {
+        cun *= 10;
+      }
+    }
+    cout << cun << endl;
+  } else {
+    cout << cun << endl;
+  }
 }
 
 int main(){
   frep;
-  
-  solve();
+  cin >> t;
+  while(t--) {
+    cin >> s;
+    solve();
+  }
   frepC;
   sys;
   return 0;

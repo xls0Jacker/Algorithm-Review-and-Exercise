@@ -6,7 +6,7 @@ using namespace std;
 #define  PI    3.14159265358979323846
 
 //遗传算法参数，种群规模（0~100）、繁殖代数、函数变量个数、交叉概率、变异概率
-# define GROUP_SCALE    50
+# define GROUP_SCALE    80
 # define MAX_GENS       100
 # define N_VARS         2
 # define P_MATING       0.8

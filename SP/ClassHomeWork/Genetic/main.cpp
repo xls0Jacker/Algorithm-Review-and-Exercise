@@ -9,7 +9,7 @@ int main()
 {
     int Xnration;
     int i;
-    int seed = 123456789;
+    int seed = 1778191789;
 
     //showTime();
     initGroup(seed);// 初始化种群

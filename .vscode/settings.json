@@ -45,6 +45,8 @@
     "random": "cpp",
     "algorithm": "cpp",
     "vector": "cpp",
-    "valarray": "cpp"
+    "valarray": "cpp",
+    "stack": "cpp",
+    "chrono": "cpp"
   }
 }
