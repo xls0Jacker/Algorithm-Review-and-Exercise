@@ -14,7 +14,7 @@ int n;
 
 struct pos{
   double x, y;
-}s[NMAX], v[NMAX];// 栈 点集
+}v[NMAX];// 点集
 
 int stk[NMAX];// 记录栈内元素的编号
 
@@ -43,7 +43,7 @@ bool Side(pos a, pos b) {
 } 
 
 double Len(pos a, pos b) {
-  return sqrt(pow(abs(a.x - b.x), 2) + pow(abs(a.y - b.y), 2));
+  return sqrt(pow(a.x - b.x, 2) + pow(a.y - b.y, 2));
 }
 
 void solve(){

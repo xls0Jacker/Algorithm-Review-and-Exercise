@@ -22,7 +22,7 @@ using namespace std;
 #define hidden_num 30		//隐层神经元数
 #define output_num 10		//输出层神经元数
 
-#define disturb 0.1  //数字模糊的程度
+#define disturb 0.99  //数字模糊的程度
 
 struct input_neurons {
 	//	double inp;
