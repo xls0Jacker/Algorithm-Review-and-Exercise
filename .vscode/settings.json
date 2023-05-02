@@ -47,6 +47,8 @@
     "vector": "cpp",
     "valarray": "cpp",
     "stack": "cpp",
-    "chrono": "cpp"
+    "chrono": "cpp",
+    "queue": "cpp",
+    "string": "cpp"
   }
 }

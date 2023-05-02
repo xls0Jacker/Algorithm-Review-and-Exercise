@@ -78,8 +78,10 @@ void solve(){
     }
     stk[++tp] = i;
   }
+  // 注释 这个方法中含终点和起点各两个 分别处于中间和最后
   double ans = 0;
   Rep(1, i, tp - 1) {// 这其中有两个最右侧的一个点 但是计算距离时不需要考虑（为 0）
+    cout << v[stk[i]].x << "  " << v[stk[i]].y << endl;
     ans += Len(v[stk[i]], v[stk[i + 1]]);
   }
   printf("%.2lf\n", ans);

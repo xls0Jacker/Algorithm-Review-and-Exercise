@@ -8,28 +8,30 @@ using namespace std;
 #define frepC freopen("CON","r",stdin)
 #define sys system("pause")
 typedef long long ll;
+const int NMAX = 55;
+
+int n;
+double I;
+double f[NMAX];
 
 void solve(){
-  int l = 0, r = 1e9 + 1;
-  int n;
-  while(l <= r) {
-    int mid = (l + r) / 2;
-    cout << mid << endl;
-    cin >> n;
-    if(n == 0) {
-      return;
-    } else if(n == 1){
-      r = mid + 1;
-    } else if(n == -1) {
-      l = mid;
+  double sum = 0;
+  Rep(0, i, n) {
+    if(f[i] > 0) {
+      sum += f[i] * pow(1 + I, -i);
     } else {
-      return;
+      sum += f[i] * pow(1 + I, -i);
     }
   }
+  cout << sum << endl;
 }
 
 int main(){
   frep;
+  cin >> n >> I;
+  Rep(0, i, n) {
+    cin >> f[i];
+  }
   solve();
   frepC;
   sys;
